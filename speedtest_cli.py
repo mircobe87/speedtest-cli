@@ -747,7 +747,7 @@ def speedtest():
                 headers = ['Test server', 'Date/Time', 'Latency (ms)', 'Dowload Speed (K'+args.units[0]+'/s)', 'Upload Speed (K'+args.units[0]+'/s)']
                 csvwriter = csv.DictWriter(csvfile, delimiter=',', lineterminator='\n',fieldnames=headers)
                 server = '%(sponsor)s (%(name)s) [%(d)0.2f km]' % best
-                current_time = datetime.datetime.now().isoformat()
+                current_time = datetime.datetime.utcnow().isoformat()
                 dlspeedk = float(round((dlspeed / 1000) * args.units[1], 2))
                 ping = float(round(best['latency'], 2))
                 ulspeedk = float(round((ulspeed / 1000) * args.units[1], 2))
